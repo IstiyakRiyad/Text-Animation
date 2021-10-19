@@ -1,6 +1,20 @@
 @font-face {
-    font-family: 'Fredericka the Great';
-    src: url('./../assets/fonts/FrederickatheGreat-Regular.ttf') format('truetype');
+    font-family: 'Poppins';
+    src: url('./../assets/fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --backgroundColor: #1c1c1c;
+    --inputColor: #353535;
+    --white: #fff;
+    --textColor: aqua;
+    --textShadow: #176C8D;
+    --startHeight: 0px;
 }
 
 html {
@@ -8,20 +22,111 @@ html {
 }
 
 body {
-    font-family: 'Fredericka the Great';
-    margin: 0;
-    background-image: url('../assets/image/background.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: bottom;
-
-    color: #e8e0d1;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--backgroundColor);
+    overflow: hidden;
 }
 
-h1 {
-    margin-top: 1.5em;
-    font-size: 60px;
-    font-weight: 400;
-    text-align: center;
+
+.container {
+    height: 100%;
+    padding: 50px 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.searchBar {
+    width: 60%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 0 20px;
+    z-index: 100;
+}
+
+.searchBar img {
+    width: 30px;
+    position: absolute;
+    left: 30px;
+    top: 10.5px;
+}
+
+input {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 10px 50px;
+    color: var(--white);
+    background: var(--inputColor);
+    border: none;
+    border-radius: 30px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.text {
+    height: 100%;
+    font-size: 0rem;
+    align-self: flex-start;
+}
+
+span {
+    color: var(--textColor);
+    display: inline-block;
+    font-size: 5rem;
+    font-weight: 600;
+    white-space: pre;
+    text-shadow: 5px 0px 0px var(--textShadow);
+    transition: all 2.5s ease-in-out;
+    position: relative;
+    top: var(--startHeight);
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 30px 10px 0;
+    }
+    
+    span {
+        font-size: 3rem;
+    }
+
+    .searchBar {
+        width: 100%;
+    }
+}
+
+.animation {
+    animation: anim 1s linear;
+    animation-fill-mode: both;
+}
+
+@keyframes anim {
+    0% {
+        transform: scale(1, 1)
+    }
+    30% {
+        transform: scale(1.25, .75)
+    }
+    40% {
+        transform: scale(.75, 1.25)
+    }
+    50% {
+        transform: scale(1.15, .85)
+    }
+    65% {
+        transform: scale(.95, 1.05)
+    }
+    75% {
+        transform: scale(1.05, .95)
+    }
+    100% {
+        transform: scale(1, 1)
+    }
 }
